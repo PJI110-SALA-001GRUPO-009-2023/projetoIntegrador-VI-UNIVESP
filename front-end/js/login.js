@@ -50,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
             // Para fins de demonstração do Front-end sem o Back-end, vamos simular o sucesso.
             // Em um ambiente real, esta parte faria uma requisição à sua API.
 
-            // Você pode definir um "usuário de teste" para simular
             const TEST_EMAIL = 'teste@exemplo.com';
             const TEST_PASSWORD = 'password123';
 
@@ -69,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // A parte original com `fetch` (comentada para simulação):
             /*
-            const LOGIN_API_URL = 'SUA_URL_DA_API_DE_LOGIN'; // Substitua pela sua URL real
+            const LOGIN_API_URL = 'SUA_URL_DA_API_DE_LOGIN'; // Substitua pela URL real
 
             try {
                 const response = await fetch(LOGIN_API_URL, {
@@ -107,8 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (registerButton) {
         registerButton.addEventListener('click', () => {
-            // Agora redireciona diretamente para a tela de cadastro de dispositivo para exemplo
-            // Você pode criar uma tela de cadastro de usuário separada se desejar
             window.location.href = 'register-device.html';
         });
     }
@@ -117,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
         forgotPasswordLink.addEventListener('click', (event) => {
             event.preventDefault();
             alert('Você será redirecionado para a página de recuperação de senha.');
-            // window.location.href = 'recuperar-senha.html'; // Descomente e ajuste quando tiver a página
+            // window.location.href = 'recuperar-senha.html'; // Descomentar e ajuste quando tiver a página
         });
     }
 });

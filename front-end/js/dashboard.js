@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
             soilHumidity: 72,
             temperature: 26,
             airHumidity: 85,
-            lastWatering: new Date(new Date().setHours(new Date().getHours() - 3, 0, 0)).toISOString(), // 3 horas atrás
+            lastWatering: new Date(new Date().setHours(new Date().getHours() - 3, 0, 0)).toISOString(), 
             lastReading: new Date().toISOString(), // Agora
         };
 
