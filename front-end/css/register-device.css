@@ -20,19 +20,27 @@ body {
     overflow: hidden;
 }
 
+
 .header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Centraliza o conteúdo */
     align-items: center;
     padding: 20px 30px;
     border-bottom: 1px solid #eee;
     background-color: #fff;
+    position: relative; /* Para posicionar os ícones absolutamente se necessário */
 }
 
 .logo-title-img {
     max-width: 200px;
     height: auto;
     object-fit: contain;
+}
+
+/* Mover os ícones para a direita */
+.header-actions {
+    position: absolute;
+    right: 30px;
 }
 
 .header-actions .icon-link {
@@ -44,6 +52,22 @@ body {
 
 .header-actions .icon-link:hover {
     color: #3e8e41;
+}
+
+/* Ajuste para mobile */
+@media (max-width: 768px) {
+    .header {
+        padding: 15px 20px;
+        justify-content: center;
+    }
+    
+    .logo-title-img {
+        max-width: 150px;
+    }
+    
+    .header-actions {
+        right: 20px;
+    }
 }
 
 .main-content {

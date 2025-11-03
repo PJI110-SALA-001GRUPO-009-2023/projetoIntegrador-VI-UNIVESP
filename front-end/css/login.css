@@ -1,35 +1,31 @@
 body {
     margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
     background-color: #f0f2f5;
-    padding: 20px;
     box-sizing: border-box;
 }
 
 .container {
     display: flex;
-    width: 100%;
-    max-width: 1200px;
+    width: 100vw; 
+    height: 100vh; 
     background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    min-height: 600px;
 }
 
 .image-section {
     flex: 1;
     background-image: url('../assets/img/login.png');
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    min-height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    border: none;
+    image-rendering: auto;
+    min-width: 400px; 
 }
 
 .login-section {
