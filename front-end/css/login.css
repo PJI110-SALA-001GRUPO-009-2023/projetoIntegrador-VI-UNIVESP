@@ -24,7 +24,6 @@ body {
 .image-section {
     flex: 1;
     background-image: url('../assets/img/login.png');
-    background-size: 1157px 630px;
     background-position: center;
     background-repeat: no-repeat;
     min-height: 100%;
@@ -183,11 +182,6 @@ form {
     .container {
         flex-direction: column;
         min-height: unset;
-    }
-
-    .image-section {
-        min-height: 200px;
-        flex: none;
     }
 
     .login-section {
