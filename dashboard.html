@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Gestão Comunitária para Hortas Urbanas</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <img src="assets/img/login-title.png" alt="Gestão Comunitária para Hortas Urbanas" class="logo-title-img">
+            </div>
+            <div class="header-actions">
+                <a href="#" id="profileLink" class="icon-link">👤</a>
+                <a href="#" id="logoutLink" class="icon-link">➡️</a>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="card status-card">
+                <div class="card-info">
+                    <p>Status Geral da Horta</p>
+                    <h2 id="gardenStatus">Sua horta está saudável!</h2>
+                </div>
+            </div>
+
+            <div class="card last-watering-card">
+                <h3>Última Rega:</h3>
+                <div class="watering-info">
+                    <span class="emoji-icon">💧</span>
+                    <p id="lastWateringTime">Hoje, 06:30</p>
+                </div>
+            </div>
+
+            <div class="card sensor-card soil-humidity-card">
+                <h3>Umidade do Solo</h3>
+                <div class="sensor-info">
+                    <span class="emoji-icon">🌱</span>
+                    <p id="soilHumidity">65%</p>
+                </div>
+            </div>
+
+            <div class="card sensor-card temperature-card">
+                <h3>Temperatura</h3>
+                <div class="sensor-info">
+                    <span class="emoji-icon">🌡️</span>
+                    <p id="temperature">24°C</p>
+                </div>
+            </div>
+
+            <div class="card sensor-card air-humidity-card">
+                <h3>Umidade do Ar</h3>
+                <div class="sensor-info">
+                    <span class="emoji-icon">💨</span>
+                    <p id="airHumidity">78%</p>
+                </div>
+            </div>
+            
+            <div class="card last-reading-card">
+                <h3>Última Leitura:</h3>
+                <div class="reading-info">
+                    <span class="emoji-icon">🕐</span>
+                    <p id="lastReadingTime">Hoje, 11:20</p>
+                </div>
+                <button id="manualWateringBtn" class="btn-manual-watering">Regar Manualmente</button>
+            </div>
+
+            <div class="card add-device-card">
+                <a href="register-device.html" class="add-device-link">
+                    <span class="add-icon">+</span> Adicionar dispositivo
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

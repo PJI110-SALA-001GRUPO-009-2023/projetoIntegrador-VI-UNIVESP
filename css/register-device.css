@@ -1,0 +1,221 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px; /* Mais largo para o formulário */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    border-bottom: 1px solid #eee;
+    background-color: #fff;
+}
+
+.logo-title-img {
+    max-width: 200px;
+    height: auto;
+    object-fit: contain;
+}
+
+.header-actions .icon-link {
+    font-size: 1.5em;
+    color: #4CAF50;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+.header-actions .icon-link:hover {
+    color: #3e8e41;
+}
+
+.main-content {
+    padding: 30px;
+}
+
+.main-content h2 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.main-content h3 {
+    color: #555;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas para os campos */
+    gap: 20px 30px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box; /* Garante que padding não aumente a largura total */
+}
+
+/* Campos que ocupam duas colunas */
+.form-group:nth-of-type(1), /* Nome do Dispositivo */
+.form-group:nth-of-type(2), /* MAC Address */
+.form-group:nth-of-type(3), /* Localização */
+.form-group:nth-of-type(4) { /* Cultura */
+    /* São 4 campos, podem ficar em 2 colunas com 2 linhas */
+}
+
+.slider-group {
+    grid-column: span 2; /* Ocupa as duas colunas */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.slider-group input[type="range"] {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.slider-group #minHumidityValue {
+    margin-top: 5px;
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.radio-group {
+    grid-column: span 2; /* Ocupa as duas colunas */
+    flex-direction: row; /* Rádio buttons em linha */
+    gap: 20px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.radio-group input[type="radio"] {
+    margin-right: 5px;
+}
+
+.radio-group label {
+    margin-bottom: 0; /* Remove margin-bottom padrão para labels de rádio */
+}
+
+.form-actions {
+    grid-column: span 2; /* Botões ocupam as duas colunas */
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.btn-save, .btn-cancel {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+.btn-save {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-save:hover {
+    background-color: #45a049;
+}
+
+.btn-cancel {
+    background-color: #f44336;
+    color: white;
+}
+
+.btn-cancel:hover {
+    background-color: #da190b;
+}
+
+.message {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    width: 100%;
+    box-sizing: border-box;
+    grid-column: span 2; /* Mensagem ocupa as duas colunas */
+    text-align: center;
+}
+
+.message.error {
+    background-color: #ffe0e0;
+    color: #cc0000;
+    border: 1px solid #cc0000;
+}
+
+.message.success {
+    background-color: #e0ffe0;
+    color: #00cc00;
+    border: 1px solid #00cc00;
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 15px 20px;
+    }
+    .logo-title-img {
+        max-width: 150px;
+    }
+    .main-content {
+        padding: 20px;
+    }
+    form {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    }
+    .slider-group, .radio-group, .form-actions {
+        grid-column: span 1; /* Ocupa uma coluna em telas menores */
+    }
+    .radio-group {
+        justify-content: center;
+    }
+    .form-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .btn-save, .btn-cancel {
+        width: 100%;
+    }
+}

@@ -1,0 +1,227 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 30px;
+    border-bottom: 1px solid #eee;
+    background-color: #fff;
+    position: relative;
+}
+
+.header-actions {
+    position: absolute;
+    right: 30px;
+}
+
+.logo-title-img {
+    max-width: 300px;
+    height: auto;
+    object-fit: contain;
+}
+
+.header-actions .icon-link {
+    font-size: 1.5em;
+    color: #4CAF50;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+.header-actions .icon-link:hover {
+    color: #3e8e41;
+}
+
+.main-content {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto auto auto;
+    gap: 20px;
+    grid-template-areas: 
+        "status status status status"
+        "watering sensor1 sensor2 sensor3"
+        "reading add-device add-device add-device"
+        ". . . .";
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.card h3 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.card-icon img, .sensor-info img, .watering-info img, .reading-info img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+}
+
+.emoji-icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.status-card {
+    grid-area: status;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+}
+
+.status-card .card-info h2 {
+    color: #4CAF50;
+    margin: 0;
+    font-size: 1.8em;
+}
+
+.status-card .card-info p {
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.last-watering-card {
+    grid-area: watering;
+    justify-content: space-between;
+    grid-column: span 1;
+    min-width: 280px;
+}
+
+.last-watering-card button {
+    margin-top: 20px;
+}
+
+.last-reading-card {
+    grid-area: reading;
+    justify-content: space-between;
+    grid-column: span 1;
+    min-width: 280px;
+}
+
+.btn-manual-watering {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.btn-manual-watering:hover {
+    background-color: #45a049;
+}
+
+.add-device-card {
+    grid-area: add-device;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80px;
+    border: 2px dashed #ccc;
+    transition: border-color 0.3s ease;
+    padding: 15px;
+}
+
+.add-device-card:hover {
+    border-color: #4CAF50;
+}
+
+.add-device-link {
+    text-decoration: none;
+    color: #666;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s ease;
+}
+
+.add-device-link:hover {
+    color: #4CAF50;
+}
+
+.add-icon {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.soil-humidity-card {
+    grid-area: sensor1;
+}
+
+.temperature-card {
+    grid-area: sensor2;
+}
+
+.air-humidity-card {
+    grid-area: sensor3;
+}
+
+/* Cores para valores dos sensores e informações */
+.sensor-info p, .watering-info p, .reading-info p {
+    color: #333;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .status-card {
+        grid-column: span 1;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .status-card .card-info h2 {
+        font-size: 1.5em;
+    }
+
+    .header {
+        padding: 15px 20px;
+    }
+
+    .logo-title-img {
+        max-width: 150px;
+    }
+}
