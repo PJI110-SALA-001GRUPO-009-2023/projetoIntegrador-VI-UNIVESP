@@ -1,5 +1,5 @@
 <h1 align="center"> 🌱 HydraSolo 🌱 </h1>
-<h1 align="center">Irrigador automático para hortas urbanas.</h1>
+<h1 align="center">Irrigador automático para hortas urbanas</h1>
 
 ![GitHub language count](https://img.shields.io/github/languages/count/PJI110-SALA-001GRUPO-009-2023/projetoIntegrador-VI-UNIVESP?color=%23a2d2ff)
 ![GitHub repo size](https://img.shields.io/github/repo-size/PJI110-SALA-001GRUPO-009-2023/projetoIntegrador-VI-UNIVESP?color=%23ffc8dd)
