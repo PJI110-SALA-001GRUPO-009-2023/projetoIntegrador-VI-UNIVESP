@@ -1,8 +1,8 @@
 <h1 align="center"> 🌱 Sistema de Irrigação Inteligente e Gestão Comunitária para Hortas Urbanas 🌱 </h1>
 
-![GitHub language count](https://img.shields.io/github/languages/count/juxxnn/Smart-Feeder-Pet-project?color=%23a2d2ff)
-![GitHub repo size](https://img.shields.io/github/repo-size/juxxnn/Smart-Feeder-Pet-project?color=%23ffc8dd)
-![GitHub license](https://img.shields.io/github/license/juxxnn/Smart-Feeder-Pet-project?color=%23caffbf)
+![GitHub language count](https://img.shields.io/github/languages/count/PJI110-SALA-001GRUPO-009-2023/projetoIntegrador-VI-UNIVESP?color=%23a2d2ff)
+![GitHub repo size](https://img.shields.io/github/repo-size/juxxnn/PJI110-SALA-001GRUPO-009-2023/projetoIntegrador-VI-UNIVESP?color=%23ffc8dd)
+![GitHub license](https://img.shields.io/github/license/juxxnn/PJI110-SALA-001GRUPO-009-2023/projetoIntegrador-VI-UNIVESP?color=%23caffbf)
 
 ## Descrição
 Sistema IoT desenvolvido para automatizar a irrigação e facilitar a gestão comunitária de hortas urbanas, promovendo a agricultura sustentável em ambientes urbanos através de monitoramento inteligente e colaboração entre usuários.
