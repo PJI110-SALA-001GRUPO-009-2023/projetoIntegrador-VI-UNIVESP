@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const gardenStatusElement = document.getElementById('gardenStatus');
     const lastWateringTimeElement = document.getElementById('lastWateringTime');
-    const soilHumidityElement = document.getElementById('soilHumidity');
-    const temperatureElement = document.getElementById('temperature');
+    const soilMoistureElement = document.getElementById('soilMoisture');
+    const airTempCElement = document.getElementById('airTempC');
     const airHumidityElement = document.getElementById('airHumidity');
     const lastReadingTimeElement = document.getElementById('lastReadingTime');
     const manualWateringBtn = document.getElementById('manualWateringBtn');
@@ -22,57 +22,75 @@ document.addEventListener('DOMContentLoaded', () => {
     async function fetchDashboardData() {
         if (!authToken) return;
 
-        // SIMULAÇÃO DE DADOS DO DASHBOARD:
-        // Em um ambiente real, esta parte faria uma requisição à sua API.
-        const mockDashboardData = {
-            generalStatus: 'Sua horta está saudável e produtiva!',
-            soilHumidity: 72,
-            temperature: 26,
-            airHumidity: 85,
-            lastWatering: new Date(new Date().setHours(new Date().getHours() - 3, 0, 0)).toISOString(), 
-            lastReading: new Date().toISOString(), // Agora
-        };
-
-        // Simula um atraso de rede para parecer uma requisição real
-        await new Promise(resolve => setTimeout(resolve, 500));
-
-        updateDashboardUI(mockDashboardData);
-
-        // A parte original com `fetch` (comentada para simulação):
-        /*
-        const DASHBOARD_API_URL = 'SUA_URL_DA_API_DO_DASHBOARD';
+        const DASHBOARD_API_URL = 'https://irrigadror-inteligente.azurewebsites.net/api/getLastData/';
 
         try {
-            const response = await fetch(DASHBOARD_API_URL, {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${authToken}`,
-                    'Content-Type': 'application/json',
-                },
-            });
+            const response = await fetch(DASHBOARD_API_URL, { method: 'GET' });
+            if (!response.ok) {
+                throw new Error(`Network response was not ok (${response.status})`);
+            }
 
-            if (response.ok) {
-                const data = await response.json();
-                updateDashboardUI(data);
-            } else {
-                if (response.status === 401 || response.status === 403) {
-                    alert('Sessão expirada ou não autorizada. Faça login novamente.');
-                    localStorage.removeItem('authToken');
-                    window.location.href = 'index.html';
-                } else {
-                    alert('Não foi possível carregar os dados do dashboard.');
+            const respJson = await response.json();
+
+            let decodedBody = null;
+            if (respJson && respJson.Body) {
+                decodedBody = atob(respJson.Body);
+            }
+
+            let dataFromApi = null;
+            try {
+                dataFromApi = decodedBody ? JSON.parse(decodedBody) : null;
+            } catch (err) {
+                dataFromApi = null;
+            }
+
+            const fallbackData = {
+                generalStatus: 'Sua horta está saudável e produtiva!',
+                soilMoisture: 72,
+                airTempC: 26,
+                airHumidity: 85,
+                lastWatering: new Date(new Date().setHours(new Date().getHours() - 3, 0, 0)).toISOString(),
+                lastReading: new Date().toISOString(),
+            };
+
+            const finalData = Object.assign({}, fallbackData, dataFromApi || {});
+
+            const sysProps = respJson && (respJson.SystemProperties || respJson.systemProperties);
+            if (sysProps && sysProps["iothub-enqueuedtime"]) {
+                try {
+                    const enqueuedUtc = new Date(sysProps["iothub-enqueuedtime"]).toISOString();
+                    const gmtMinus3 = new Date(new Date(enqueuedUtc).getTime());
+                    finalData.lastReading = gmtMinus3.toISOString();
+                } catch (err) {
+
                 }
             }
+
+            updateDashboardUI(finalData);
         } catch (error) {
-            alert('Erro de conexão ao carregar o dashboard.');
+            alert('Erro ao carregar dados do dashboard: ' + (error.message || 'Erro desconhecido.'));
+            
+            const fallbackData = {
+                generalStatus: 'Sua horta está saudável e produtiva!',
+                soilMoisture: 72,
+                airTempC: 26,
+                airHumidity: 85,
+                lastWatering: new Date(new Date().setHours(new Date().getHours() - 3, 0, 0)).toISOString(),
+                lastReading: new Date().toISOString(),
+            };
+            updateDashboardUI(fallbackData);
         }
-        */
     }
 
     function updateDashboardUI(data) {
+        // remove loading classes before setting real content
+        [lastWateringTimeElement, soilMoistureElement, airTempCElement, airHumidityElement, lastReadingTimeElement].forEach(el => {
+            if (el) el.classList.remove('loading');
+        });
+
         gardenStatusElement.textContent = data.generalStatus || 'Carregando...';
-        soilHumidityElement.textContent = `${data.soilHumidity || 0}%`;
-        temperatureElement.textContent = `${data.temperature || 0}°C`;
+        soilMoistureElement.textContent = `${data.soilMoisture || 0}%`;
+        airTempCElement.textContent = `${data.airTempC || 0}°C`;
         airHumidityElement.textContent = `${data.airHumidity || 0}%`;
 
         const formatDateTime = (isoString) => {
@@ -96,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Em um ambiente real, esta parte faria uma requisição à sua API.
             alert('Comando de rega manual enviado com sucesso (simulado)!');
             fetchDashboardData(); // Recarrega os dados para simular a atualização
-            
+
             // A parte original com `fetch` (comentada para simulação):
             /*
             const MANUAL_WATERING_API_URL = 'SUA_URL_DA_API_DE_REGA_MANUAL';
