@@ -51,7 +51,7 @@ projetoIntegrador-VI-UNIVESP/
 └── device/
     ├── device.ino             # Orquestrador das tarefas do dispositivo físico (em desenvolvimento)
     └── calibrador.ino         # Permite identificar e setar os parâmetros funcionais dos sensores do dispositivo 
-
+```
 ## 🚀 Como usar
 
 ### Frontend
