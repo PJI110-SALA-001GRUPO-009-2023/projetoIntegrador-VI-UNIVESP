@@ -42,13 +42,15 @@ projetoIntegrador-VI-UNIVESP/
 │       ├── login.js          # Lógica de autenticação
 │       ├── dashboard.js      # Funcionalidades do dashboard
 │       └── register-device.js # Cadastro de dispositivos
-└── back-end/                  # API e lógica do servidor (em desenvolvimento)
-    ├── src/                   # Código fonte da API
-    ├── config/                # Configurações do sistema
-    ├── models/                # Modelos de dados
-    ├── routes/                # Rotas da API
-    └── controllers/           # Controladores da aplicação
-```
+├── back-end/                  # API e lógica do servidor (em desenvolvimento)
+│   ├── src/                   # Código fonte da API
+│   ├── config/                # Configurações do sistema
+│   ├── models/                # Modelos de dados
+│   ├── routes/                # Rotas da API
+│   └── controllers/           # Controladores da aplicação
+└── device/
+    ├── device.ino             # Orquestrador das tarefas do dispositivo físico (em desenvolvimento)
+    └── calibrador.ino         # Permite identificar e setar os parâmetros funcionais dos sensores do dispositivo 
 
 ## 🚀 Como usar
 
