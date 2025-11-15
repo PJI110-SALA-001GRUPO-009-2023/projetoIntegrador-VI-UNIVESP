@@ -10,7 +10,7 @@
 #include <Arduino.h>
 
 
-#ifndef SERIAL_LOGGER_BAUD_RATE // Se a taxa de baud não estiver definida, define o padrão
+#ifndef SERIAL_LOGGER_BAUD_RATE        // Se a taxa de baud não estiver definida, define o padrão
 #define SERIAL_LOGGER_BAUD_RATE 115200 // Define a velocidade de comunicação serial (baud rate) padrão
 #endif
 
