@@ -29,25 +29,34 @@ projetoIntegrador-VI-UNIVESP/
 ├── LICENSE
 ├── README.md
 ├── front-end/                  # Interface web do sistema
-│   ├── index.html             # Página de login
-│   ├── dashboard.html         # Dashboard principal
-│   ├── register-device.html   # Cadastro de dispositivos IoT
+│   ├── index.html              # Página de login
+│   ├── dashboard.html          # Dashboard principal
+│   ├── register-device.html    # Cadastro de dispositivos IoT
 │   ├── assets/
-│   │   └── img/              # Imagens e recursos visuais
+│   │   └── img/                # Imagens e recursos visuais
 │   ├── css/
-│   │   ├── login.css         # Estilos da página de login
-│   │   ├── dashboard.css     # Estilos do dashboard
+│   │   ├── login.css           # Estilos da página de login
+│   │   ├── dashboard.css       # Estilos do dashboard
 │   │   └── register-device.css # Estilos do cadastro
 │   └── js/
-│       ├── login.js          # Lógica de autenticação
-│       ├── dashboard.js      # Funcionalidades do dashboard
-│       └── register-device.js # Cadastro de dispositivos
-└── back-end/                  # API e lógica do servidor (em desenvolvimento)
-    ├── src/                   # Código fonte da API
-    ├── config/                # Configurações do sistema
-    ├── models/                # Modelos de dados
-    ├── routes/                # Rotas da API
-    └── controllers/           # Controladores da aplicação
+│       ├── login.js            # Lógica de autenticação
+│       ├── dashboard.js        # Funcionalidades do dashboard
+│       └── register-device.js  # Cadastro de dispositivos
+├── back-end/                   # API e lógica do servidor
+│   ├── src/                    # Código fonte da API
+│   ├── config/                 # Configurações do sistema
+│   ├── models/                 # Modelos de dados
+│   ├── routes/                 # Rotas da API
+│   └── controllers/            # Controladores da aplicação
+└── device/                     
+    ├── config.h                # Configurações de hardware
+    ├── iot_configs.h           # Configurações de rede
+    ├── SerialLogger.h          # Definição da classe de logs
+    ├── SerialLogger.cpp        # Implementação da classe de logs
+    ├── calibrador.ino          # Aplicação para captar os parâmetros dos sensores
+    ├── AzIoTSasToken.h         # Definição da classe de comunicação com Azure
+    ├── AzIoTSasToken.cpp       # Implementação da classe de comunicação com Azure
+    └── device.ino              # Aplicação do dispositivo
 ```
 
 ## 🚀 Como usar
@@ -64,6 +73,11 @@ O backend estará disponível em breve com:
 - Banco de dados para armazenamento de dados dos sensores
 - Sistema de autenticação e autorização
 - Processamento de dados ambientais
+
+### Dispositivo
+1. Conecte a mangueira que leva a válvula solenoide a um ponto d'água
+2. Coloque o sensor de umidade do solo próximo a área que deseja monitorar
+3. Conecte o dispositivo ao Wi-Fi para poder visualizar os dados de umidade do solo e do ar e sua temperatura
 
 ## 💻 Tecnologias Utilizadas
 
