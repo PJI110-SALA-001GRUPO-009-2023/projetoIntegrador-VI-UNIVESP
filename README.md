@@ -42,12 +42,11 @@ projetoIntegrador-VI-UNIVESP/
 │       ├── login.js            # Lógica de autenticação
 │       ├── dashboard.js        # Funcionalidades do dashboard
 │       └── register-device.js  # Cadastro de dispositivos
-├── back-end/                   # API e lógica do servidor
-│   ├── src/                    # Código fonte da API
-│   ├── config/                 # Configurações do sistema
-│   ├── models/                 # Modelos de dados
-│   ├── routes/                 # Rotas da API
-│   └── controllers/            # Controladores da aplicação
+|── azure-function/            
+|   ├── src/                   
+|       ├── functions/         
+|           ├── getLastData.js # Lógica da Azure Function para comunicação entre banco de dados em núvem e front-end
+|       ├── index.js/          # configura e hospeda Azure Function
 └── device/                     
     ├── config.h                # Configurações de hardware
     ├── iot_configs.h           # Configurações de rede
@@ -67,7 +66,7 @@ projetoIntegrador-VI-UNIVESP/
 3. Acesse o [dashboard](front-end/dashboard.html) para visualizar dados dos sensores
 4. Utilize o [cadastro de dispositivos](front-end/register-device.html) para adicionar novos sensores IoT
 
-### Backend (Em desenvolvimento)
+### Backend
 O backend estará disponível em breve com:
 - API REST para comunicação com dispositivos IoT
 - Banco de dados para armazenamento de dados dos sensores
