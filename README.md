@@ -44,9 +44,9 @@ projetoIntegrador-VI-UNIVESP/
 │       └── register-device.js  # Cadastro de dispositivos
 |── azure-function/            
 |   ├── src/                   
-|       ├── functions/         
-|           ├── getLastData.js # Lógica da Azure Function para comunicação entre banco de dados em núvem e front-end
-|       ├── index.js/          # configura e hospeda Azure Function
+|   |──── functions/         
+|   |     └── getLastData.js # Lógica da Azure Function para comunicação entre banco de dados em núvem e front-end
+|   └──── index.js/          # configura e hospeda Azure Function
 └── device/                     
     ├── config.h                # Configurações de hardware
     ├── iot_configs.h           # Configurações de rede
