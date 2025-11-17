@@ -42,12 +42,11 @@ projetoIntegrador-VI-UNIVESP/
 │       ├── login.js          # Lógica de autenticação
 │       ├── dashboard.js      # Funcionalidades do dashboard
 │       └── register-device.js # Cadastro de dispositivos
-└── back-end/                  # API e lógica do servidor (em desenvolvimento)
-    ├── src/                   # Código fonte da API
-    ├── config/                # Configurações do sistema
-    ├── models/                # Modelos de dados
-    ├── routes/                # Rotas da API
-    └── controllers/           # Controladores da aplicação
+|── azure-function/            
+|   ├── src/                   
+|       ├── functions/         
+|           ├── getLastData.js # Lógica da Azure Function para comunicação entre banco de dados em núvem e front-end
+|       ├── index.js/          # configura e hospeda Azure Function 
 ```
 
 ## 🚀 Como usar
